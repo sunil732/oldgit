@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="29519334-d5ef-49f9-8456-9a0c34452810" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="runFlow" doc:id="a1af084e-7476-4b97-b38f-f3d5970b9f7f" >
+		<http:listener doc:name="Listener" doc:id="bf7dd4a4-48f2-4f9d-b247-5b6b0dd764e2" config-ref="HTTP_Listener_config" path="/oldergit"/>
+		<logger level="INFO" doc:name="Logger" doc:id="42d84d4c-ddf3-4783-963a-191bea0f5b27" message="#[payload]"/>
+	</flow>
+</mule>
